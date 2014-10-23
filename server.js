@@ -7,7 +7,7 @@ var config = {
   port: 8080
 };
 
-io.on('connection', function(socket) {
+io.on('connection',function(socket) {
 
   console.log("a user connected");
 
