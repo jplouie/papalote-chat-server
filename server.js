@@ -17,7 +17,12 @@ io.on('connection',function(socket) {
 
   socket.on('chat message', function(msg) {
     console.log("msg: " + msg);
-    io.emit('receive message', msg);
+    io.to(msg.room).emit('receive message', msg);
+  });
+
+  socket.on('join room', function(room){
+    socket.join(room);
+    console.log("a user joined room " + room);
   });
 })
 
