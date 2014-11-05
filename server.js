@@ -21,10 +21,11 @@ io.on('connection',function(socket) {
   });
 
   socket.on('join room', function(room){
+    socket.leave(socket.rooms[0]);
     socket.join(room);
     console.log("a user joined room " + room);
   });
-})
+});
 
 http.listen(config.port, function(){
   console.log('listening on *:' + config.port);
