@@ -1,5 +1,13 @@
 var express = require('express');
 var app = express();
+var cors = require('express-cors')
+
+app.use(cors({
+  allowedOrigins: [
+    'mks.io'
+  ]
+}))
+
 var http = require('http').Server(app);
 var io = require("socket.io")(http);
 
